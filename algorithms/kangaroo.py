@@ -16,13 +16,22 @@ def kangaroo(x1, v1, x2, v2):
     Return:
         str: YES or NO
     """
+    can_hop = None
+    numerator = x2-x1
+    denominator = v1-v2
+    num_den_mod = numerator % denominator
     
-    return
+    if (num_den_mod == 0) and (denominator > 0) and (numerator >= 0):
+        can_hop = "YES"
+    else:
+        can_hop = "NO"
+    
+    return can_hop
 
 
-def main():
+def run_test_cases():
     """
-    The main entry point for the script
+    Runs the test cases provided by hackerrank
 
     Args:
         None
@@ -30,9 +39,13 @@ def main():
     Returns:
         None
     """
-    kangaroo(0, 3, 4, 2)
+    result = kangaroo(0, 3, 4, 2)
+    print(result)
+
+    result = kangaroo(0, 2, 5, 3)
+    print(result)
     
     return
     
 if __name__ == '__main__':
-    main()
+    run_test_cases()
