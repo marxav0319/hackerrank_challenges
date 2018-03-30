@@ -1,3 +1,4 @@
+import random
 import os
 import sys
 
@@ -16,16 +17,14 @@ def kangaroo(x1, v1, x2, v2):
     Return:
         str: YES or NO
     """
-    can_hop = None
+    can_hop = "NO"
     numerator = x2-x1
     denominator = v1-v2
-    num_den_mod = numerator % denominator
     
-    if (num_den_mod == 0) and (denominator > 0) and (numerator >= 0):
-        can_hop = "YES"
-    else:
-        can_hop = "NO"
-    
+    if (denominator > 0):
+        if numerator % denominator == 0:
+            return "YES"
+
     return can_hop
 
 
@@ -43,6 +42,9 @@ def run_test_cases():
     print(result)
 
     result = kangaroo(0, 2, 5, 3)
+    print(result)
+
+    result = kangaroo(43, 2, 70, 2)
     print(result)
     
     return
